@@ -1,195 +1,841 @@
-<!DOCTYPE html>
-<html>
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Web Tools</title>
+<link rel="stylesheet" href="css/jquery.fullPage.css">
 
-<head lang='zh-cmn'>
-    <meta charset='utf-8'>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'>
-    <meta content='portrait' name='x5-orientation'>
-    <meta content='true' name='x5-fullscreen'>
-    <meta content='portrait' name='screen-orientation'>
-    <meta content='yes' name='full-screen'>
-    <meta content='webkit' name='renderer'>
-    <meta property="wb:webmaster" content="29a506845615ac30">
-    <meta content='IE=Edge' http-equiv='X-UA-Compatible'>
-    <meta content='no-siteapp' http-equiv='Cache-Control'>
-    <title>微信读书演示_dowebok</title>
-    <link href='css/index.css' rel='stylesheet'>
-    <link href='css/index-mobile.css' id='mobileStyle' rel='stylesheet'>
-    <!--[if gte IE 6]>
-        <link rel="stylesheet" href="css/index-IE.css" />
-    <![endif]-->
+	    <script src="js/jquery.js"></script>
+        <script src="js/swiper/swiper.min.js"></script>
+	    <script src="js/main.js"></script>
+        <script type="text/javascript" src="js/wow/wow.js"></script>
+	    <link rel="stylesheet" type="text/css" href="css/wow/animate.css">
+
+
+	    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		
+
+<style>
+* { margin: 0; padding: 0;}
+body { font: 16px/1.8 "Microsoft Yahei",verdana;}
+
+/* 右侧导航 */
+/*#fullPage-nav { _display: none; font-size: 12px;}
+#fullPage-nav li { width: 90px; height: 21px; margin: 10px 0 0; vertical-align: middle;}
+#fullPage-nav li a { float: right; width: 21px; height: 21px; color: #8F9DA4; text-decoration: none; text-align: right; background: url(images/dot.png) 5px 5px no-repeat;}
+#fullPage-nav li .active { background-position: 0 bottom;}
+#fullPage-nav span { display: none;}
+.fullPage-tooltip { float: left; top: 0; margin-right: 5px; font: 12px "Microsoft Yahei"; color: #8F9DA4; line-height: 21px;}*/
+
+.section { position: relative; overflow: hidden;}
+.section .bg { position: absolute; left: 0; top: 0; width: 100%; height: 100%;}
+.section .bg img { display: block; width: 100%; height: 100%;}
+
+.bg11 { position: absolute; bottom: 0; width: 100%; height: 850px; background: url(images/bg11.png) 50% 0 no-repeat; transition: all 1s;}
+.bg12 { position: absolute; bottom: -392px; width: 100%; height: 392px; background: url(images/bg12.png) 50% 0 no-repeat; opacity: 0; transition: all 1.7s; bottom: 90px\0;}
+.bg13 { position: absolute; bottom: -377px; width: 100%; height: 377px; background: url(images/bg13.png) 50% 0 no-repeat; transition: all 1s;}
+.hgroup { position: absolute; width: 554px; height: 176px; left: 50%; top: 25%; margin: 0 0 0 -277px; text-indent: -9999px; background-image: url(images/slogan.png); opacity: 0; -webkit-transform:scale(0.5, 0.5); transform:scale(0.5, 0.5); transition: all 1s;}
+.p11 { position: absolute; left: 50%; top: 50%; width: 600px; margin: 0 0 0 -280px; font-size: 14px; color: #94a7c6; opacity: 0; transition: all 0.5s;}
+.mail { position: absolute; left: 50%; top: -26px; width: 375px; height: 26px; margin-left: -187px; background-image: url(images/logo.png); transition: all 1s;}
+.mail { float: left; height: 26px; text-indent: -9999px;}
+.mail-163 { float: left; width: 107px;}
+.mail-126 { float: left;width: 108px; margin-left: 23px;}
+.mail-yeah { float: right; width: 115px;}
+
+
+
+
+
+.harry { position: absolute; left: 50%;top:-350px;bottom: 15%; width:170vh; height: 250px; margin-left: -608px; margin-bottom: 40px; background: url() 0 0 no-repeat; transition: all 1s;  opacity: 0; margin-left: 0px;}
+.active .harry { opacity: 1; margin-left: -400px; transition-delay: 0.7s;}
+
+.harrytext { position: absolute; left: 90px; top:100px;bottom: 15%; width: 550px; height: 250px; margin-left: -300vh; margin-bottom: 6vh; background: url() 0 0 no-repeat; transition: all 1s;  opacity: 0; margin-left: 0px;}
+.active .harrytext { opacity: 1; margin-left: 350px; transition-delay: 0.7s;}
+
+
+.lydia { position: absolute; left: 50%;bottom: 15%; width: 500px; height: 250px; margin-left: -608px; margin-bottom: 40px; background: url() 0 0 no-repeat; transition: all 1s;  opacity: 0; margin-left: 0px;}
+.active .lydia { opacity: 1; margin-left: 400px; transition-delay: 0.7s;}
+.lydiatext { position: absolute; left: 50%; top:20%;bottom: 15%; width: 500px; height: 250px; margin-left: -608px; margin-bottom: 40px; background: url() 0 0 no-repeat; transition: all 1s;  opacity: 0; margin-left: 0px;}
+.active .lydiatext { opacity: 1; margin-left: -400px; transition-delay: 0.7s;}
+.group { position: absolute; left: 60%; top: 5%; z-index: 10; width: 900px; height: 45px; margin-left: -256px; font-size: 25px; font-weight: 500; color: #748A9E; opacity: 0; -webkit-transform:scale(0.5, 0.5); transform:scale(0.5, 0.5); transition: all 1s;}
+.groupleft { position: absolute; left: 30%; top: 5%; z-index: 10; width: 900px; height: 45px; margin-left: -256px; font-size: 25px; font-weight: 500; color: white; opacity: 0; -webkit-transform:scale(0.5, 0.5); transform:scale(0.5, 0.5); transition: all 1s;}
+.progress{ margin-bottom:2.5vh;}
+
+
+
+
+
+
+
+
+.bg22 { position: absolute; left: 75%; top:45%; bottom: 15%; width: 500px; height: 299px; margin-left: -409px; margin-bottom: 70px; background: url()  0 no-repeat; transition: all 1s; opacity: 0; margin-left: px;}
+.bg23 { position: absolute; left: 25%; top:70%; bottom: 15%; width: 500px; height: 250px; margin-left: -608px; margin-bottom: 40px; background: url() 0 0 no-repeat; transition: all 1s;  opacity: 0; margin-left: 0px;}
+
+
+.bg31 { position: absolute; left: 20%; top:10%;bottom: 0; width: 892px; height: 472px; margin-left: -396px; margin-bottom: 80px; background-image: url(images/bg31.png); opacity: 0; transition: all 1s;}
+.bg32 { position: absolute; left: 20%; top:40%; bottom: 0; width: 892px; height: 472px; margin-left: 600px; background: url(images/bg32.png) 470px bottom no-repeat; opacity: 0; transition: all 1s;}
+.bg33 { position: absolute; left: 20%; top:70%; bottom: 0; width: 892px; height: 380px; margin-left: -396px; background: url(/*images/bg33.png*/) 0 0 no-repeat; opacity: 0; transition: all 1s;}
+
+
+.pl { position: absolute; left: 50%; top: 20%; width: 510px; margin-left: -255px; margin-top: 130px; font-size: 16px; color: #727F8C; opacity: 0; transition: all 1s;}
+
+.p1 { position: absolute; left: 50%; top: 15%; width: 510px; margin-left: -255px; margin-top: 130px; font-size: 16px; color: #727F8C; opacity: 0; transition: all 1s;}
+.bg51 { margin-left: -851px; background: url(images/bg51.png) 50% 0 no-repeat; opacity: 0; transition: all 1s;}
+.bg52 { margin-left: -403px; background: url(images/bg52.png) 50% 0 no-repeat; opacity: 0; transition: all 1s;}
+.bg53 { margin-left: 195px; background: url(images/bg53.png) 50% 0 no-repeat; opacity: 0; transition: all 1s;}
+.active .bg51 { margin-left: -551px; opacity: 1; transition-delay: 0.7s;}
+.active .bg52 { margin-left: -253px; opacity: 1; transition-delay: 0.7s;}
+.active .bg53 { margin-left: 45px; opacity: 1; transition-delay: 0.7s;}
+
+
+
+
+
+
+/*.section strong { position: absolute; left: 70%; top: 15%; z-index: 10; width: 512px; height: 45px; margin-left: -256px; font-size: 24px; font-weight: 500; color: #748A9E; opacity: 0; -webkit-transform:scale(0.5, 0.5); transform:scale(0.5, 0.5); transition: all 1s;}*/
+.section h3 { position: absolute; left: 70%; top: 15%; z-index: 10; width: 512px; height: 45px; margin-left: -256px; margin-top: 60px; text-indent: -9999px; background-repeat: no-repeat; opacity: 0; -webkit-transform:scale(0.5, 0.5); transform:scale(0.5, 0.5); transition: all 1s;}
+
+
+.section2 h3 { background-image: url(images/t2.png);}
+.section3 h3 { background-image: url(images/t3.png);}
+.section4 h3 { background-image: url(images/t4.png);}
+.section5 h3 { background-image: url(images/t5.png);}
+.section6 strong { width: 561px; margin-left: -280px;}
+.section6 h3 { width: 561px; margin-left: -280px; background-image: url(images/t6.png);}
+.section7 strong { width: 561px; margin-left: -280px;}
+.section7 h3 { width: 561px; margin-left: -280px; background-image: url(images/t7.png);}
+.section8 strong { width: 561px; margin-left: -280px;}
+.section8 h3 { width: 561px; margin-left: -280px; background-image: url(images/t8.png);}
+.section9 strong { width: 609px; margin-left: -304px;}
+.section9 h3 { width: 609px; margin-left: -304px; background-image: url(images/t9.png);}
+.section9 h3 span { position: absolute; left: -100px; top: -48px; width: 89px; height: 90px; background-image: url(images/yixin.png);}
+
+
+.p3 { position: absolute; width: 430px; left: 50%; top: 15%; margin-top: 250px; margin-left: -100%; font-size: 16px; color: #FFFDE1; opacity: 0; transition: all 1s;}
+
+.bg41 { position: absolute; bottom: -372px; width: 100%; height: 372px; background: url(images/bg41.png) 50% 0 no-repeat; transition: all 1s;}
+.bg42 { position: absolute; bottom: -449px; width: 100%; height: 449px; background: url(images/bg42.png) 50% 0 no-repeat; transition: all 1s;}
+.bg43 { position: absolute; bottom: -449px; width: 100%; height: 449px; margin-bottom: -130px; background: url(images/bg43.png) 50% 0 no-repeat; transition: all 1s;}
+
+.bg51, .bg52, .bg53, .bg54 { position: absolute; z-index: 1; width: 208px; left: 50%; bottom: 20%; padding-top: 210px; color: #fff;}
+.section5 h4 { margin-bottom: 12px; font-size: 23px; font-weight: 500;}
+.section5 p { font-size: 14px;}
+
+.bg54 { margin-left: 645px; background: url(images/bg54.png) 50% 0 no-repeat; opacity: 0; transition: all 1s;}
+
+.bg61 { position: absolute; top: -454px; width: 100%; height: 545px; background: url(images/bg61.png) 50% 0 no-repeat; transition: all 1s;}
+.bg62 { position: absolute; left: 10%; bottom: 20%; width: 597px; height: 284px; margin-left: -507px; background-image: url(images/bg62.png); transition: all 1s;}
+.txt6 { position: absolute; left: 90%; bottom: 20%; width: 447px; margin-left: 90px; opacity: 0; transition: all 1s;}
+.txt6 p { margin-bottom: 17px; color: #5C7970;}
+
+.bg71 { position: absolute; left: 50%; bottom: -201px; width: 699px; height: 201px; margin-left: -630px; background: url(images/bg71.png) 50% 0 no-repeat; opacity: 0; transition: all 1s;}
+.bg72 { position: absolute; left: 50%; bottom: -206px; width: 182px; height: 206px; margin-left: -170px; background: url(images/bg72.png) 50% 0 no-repeat; opacity: 0; transition: all 1s;}
+.bg73 { position: absolute; left: 50%; bottom: 170px; width: 651px; height: 231px; margin-left: -530px; background: url(images/bg73.png) 50% 0 no-repeat;}
+.bg74 { position: absolute; left: 0; bottom: 0; width: 100%; height: 100%;}
+.bg74 img { position: absolute; left: 0; bottom: 0; width: 100%; height: 251px;}
+.txt7 { position: absolute; left: 50%; bottom: -150px; width: 420px; margin-left: 100px; opacity: 0; transition: all 1s;}
+.txt7 p { margin-bottom: 17px; color: #EAEFF2;}
+
+.bg81 { position: absolute; width: 100%; bottom: 100px; height: 215px; background: url(images/bg81.png) 50% 0 no-repeat;}
+.bg82 { position: absolute; left: 50%; bottom: 160px; width: 164px; height: 117px; margin-left: -180px; background-image: url(images/bg82.png); opacity: 0; transition: all 1s;}
+.bg83 { position: absolute; left: 50%; bottom: 280px; width: 70px; height: 29px; margin-left: -330px; background-image: url(images/bg83.png); opacity: 0; transition: all 1s;}
+.bg84 { position: absolute; left: 50%; bottom: 320px; width: 43px; height: 26px; margin-left: -410px; background-image: url(images/bg84.png); opacity: 0; transition: all 1s;}
+.p8 { position: absolute; left: 50%; top: 15%; width: 565px; margin-left: -282px; margin-top: 130px; font-size: 16px; color: #727F8C; opacity: 0; transition: all 1s;}
+
+.bg91, .bg92, .bg93 { padding-top: 350px; font-size: 16px; color: #fff;}
+.bg91 { position: absolute; left: 50%; bottom: 15%; width: 340px; margin-left: -970px; background: url(images/bg91.png) 0 0 no-repeat; opacity: 0; transition: all 1s;}
+.bg91 p { position: relative; left: 20px; margin-left: 40px; border-right: 1px solid #13AB86;}
+.bg92 { position: absolute; left: 50%; bottom: 15%; width: 340px; margin-left: -180px; background: url(images/bg92.png) 50% 0 no-repeat; opacity: 0; transition: all 1s;}
+.bg92 p { position: relative; left: 40px; margin-left: 30px;}
+.bg93 { position: absolute; left: 50%; bottom: 15%; width: 340px; margin-left: 630px; background: url(images/bg93.png) 50% 0 no-repeat; opacity: 0; transition: all 1s;}
+.bg93 p { position: relative; left: -20px; padding-left: 100px; border-left: 1px solid #13AB86;}
+
+.bg101 { position: absolute; width: 100%; height: 100%; background: url(images/bg101.png) 50% 20% no-repeat;}
+.bg102 { position: absolute; width: 100%; top: 25%; height: 79px; background: url(images/bg102.png) 50% 0 no-repeat; opacity: 0; -webkit-transform:scale(0.5, 0.5); transform:scale(0.5, 0.5); transition: all 1s;}
+.bg103 { position: absolute; width: 100%; top: 25%; height: 37px; margin-top: 110px; background: url(images/bg103.png) 50% 0 no-repeat; opacity: 0; -webkit-transform:scale(0.5, 0.5); transform:scale(0.5, 0.5); transition: all 1s;}
+.go { position: absolute; left: 50%; top: 55%; width: 254px; height: 70px; margin-top: 220px; margin-left: -127px; text-indent: -9999px; background-image: url(images/btn.png); opacity: 0; transition: all 1s;}
+
+.copyright { position: absolute; left: 0; bottom: 20px; width: 100%; text-align: center; font-size: 0;}
+.copyright a, .copyright span { margin: 0 7px; font-size: 12px; color: #a0a0a0;}
+
+/* CSS3过度及动画 */
+.active strong, .active h3 { opacity: 1; -webkit-transform:scale(1, 1); transform:scale(1, 1); transition-delay: 0.7s;}
+.active .p1 { opacity: 1; transition-delay: 1.7s;}
+.active .pl { opacity: 1; transition-delay: 1.7s;}
+.active .test { opacity: 1; transition-delay: 1.7s;}
+
+.active .bg12 { bottom: 90px; opacity: 1; transition-delay: 0.7s; }
+.active .bg13 { bottom: 0; opacity: 1; transition-delay: 0.7s;}
+.active .hgroup { opacity: 1; -webkit-transform:scale(1, 1); transform:scale(1, 1); transition-delay: 0.7s;}
+.active .mail { top: 25px; transition-delay: 0.7s;}
+.active .p11 { opacity: 1; transition-duration: 1s; transition-delay: 2s;}
+
+
+/*.active .bg23 { bottom: 15%; transition-delay: 0.7s;}*/
+.active .bg23 { opacity: 1; margin-left: -208px; transition-delay: 0.9s;}
+.active .bg22 { margin-left: -280px; opacity: 1; transition-delay: 0.7s;}
+
+.active .p3 { margin-left: -480px; opacity: 1; transition-delay: 0.7s;}
+/*.active .bg31, .active .bg32 { opacity: 1; transition-delay: 1s;}*/
+.active .bg31{ margin-left: -150px; opacity: 1; transition-delay: 0.7s;}
+.active .bg33 { margin-left: -150px; opacity: 1; transition-delay: 0.7s;}
+.active .bg32 { margin-left: -150px; opacity: 1; transition-delay: 0.7s;}
+
+.active .bg41 { bottom: 15%; transition-delay: 0.7s;}
+.active .bg42 { bottom: 15%; transition-delay: 1.1s;}
+.active .bg43 { bottom: 15%; transition-delay: 0.9s;}
+
+
+.active .bg54 { margin-left: 345px; opacity: 1; transition-delay: 0.7s;}
+
+.active .bg61 { top: 0; transition-delay: 0.7s;}
+.active .bg62 { left: 50%; opacity: 1; transition-delay: 0.7s;}
+.active .txt6 { left: 50%; opacity: 1; transition-delay: 0.7s;}
+
+.active .bg71 { bottom: 250px; opacity: 1; transition-delay: 0.7s;}
+.active .bg72 { bottom: 350px; opacity: 1; transition-delay: 0.9s;}
+.active .txt7 { bottom: 420px; opacity: 1; transition-delay: 1.1s;}
+
+.active .bg82 { bottom: 260px; margin-left: -280px; opacity: 1; transition-delay: 0.7s;}
+.active .bg83 { bottom: 380px; margin-left: -430px; opacity: 1; transition-delay: 1s;}
+.active .bg84 { bottom: 420px; margin-left: -510px; opacity: 1; transition-delay: 1.2s;}
+.active .p8 { opacity: 1; transition-delay: 1.7s;}
+
+.active .bg91 { margin-left: -570px; opacity: 1; transition-delay: 0.7s;}
+.active .bg92 { opacity: 1; transition-delay: 0.8s;}
+.active .bg93 { margin-left: 230px; opacity: 1; transition-delay: 0.7s;}
+
+.active .bg102, .active .bg103 { opacity: 1; -webkit-transform:scale(1, 1); transform:scale(1, 1); transition-delay: 0.7s;}
+.active .go { top: 25%; opacity: 1; transition-delay: 1.2s;}
+
+/* for lt ie 10 */
+/*.ltie10 strong, .ltie10 h3 { opacity: 1; transform:scale(1, 1); transition-delay: 0.7s;}
+.ltie10 .p1 { opacity: 1; transition-delay: 1.7s;}
+
+.ltie10 .bg12 { bottom: 90px; opacity: 1; transition-delay: 0.7s; }
+.ltie10 .bg13 { bottom: 0; opacity: 1; transition-delay: 0.7s;}
+.ltie10 .hgroup { opacity: 1; transform:scale(1, 1); transition-delay: 0.7s;}
+.ltie10 .mail { top: 25px; transition-delay: 0.7s;}
+.ltie10 .p11 { opacity: 1; transition-duration: 1s; transition-delay: 2s;}
+
+.ltie10 .bg21 { opacity: 1; margin-left: -608px; transition-delay: 0.7s;}
+.ltie10 .bg23 { bottom: 15%; transition-delay: 0.7s;}
+.ltie10 .bg22 { margin-left: -280px; opacity: 1; transition-delay: 0.7s;}
+
+.ltie10 .p3 { margin-left: -480px; opacity: 1; transition-delay: 0.7s;}
+.ltie10 .bg31, .ltie10 .bg32 { opacity: 1; transition-delay: 1s;}
+.ltie10 .bg33 { margin-left: -120px; opacity: 1; transition-delay: 0.7s;}
+
+.ltie10 .bg41 { bottom: 15%; transition-delay: 0.7s;}
+.ltie10 .bg42 { bottom: 15%; transition-delay: 1.1s;}
+.ltie10 .bg43 { bottom: 15%; transition-delay: 0.9s;}
+
+.ltie10 .bg51 { margin-left: -551px; opacity: 1; transition-delay: 0.7s;}
+.ltie10 .bg52 { margin-left: -253px; opacity: 1; transition-delay: 0.7s;}
+.ltie10 .bg53 { margin-left: 45px; opacity: 1; transition-delay: 0.7s;}
+.ltie10 .bg54 { margin-left: 345px; opacity: 1; transition-delay: 0.7s;}
+
+.ltie10 .bg61 { top: 0; transition-delay: 0.7s;}
+.ltie10 .bg62 { left: 50%; opacity: 1; transition-delay: 0.7s;}
+.ltie10 .txt6 { left: 50%; opacity: 1; transition-delay: 0.7s;}
+
+.ltie10 .bg71 { bottom: 250px; opacity: 1; transition-delay: 0.7s;}
+.ltie10 .bg72 { bottom: 350px; opacity: 1; transition-delay: 0.9s;}
+.ltie10 .txt7 { bottom: 420px; opacity: 1; transition-delay: 1.1s;}
+
+.ltie10 .bg82 { bottom: 260px; margin-left: -280px; opacity: 1; transition-delay: 0.7s;}
+.ltie10 .bg83 { bottom: 380px; margin-left: -430px; opacity: 1; transition-delay: 1s;}
+.ltie10 .bg84 { bottom: 420px; margin-left: -510px; opacity: 1; transition-delay: 1.2s;}
+.ltie10 .p8 { opacity: 1; transition-delay: 1.7s;}
+
+.ltie10 .bg91 { margin-left: -570px; opacity: 1; transition-delay: 0.7s;}
+.ltie10 .bg92 { opacity: 1; transition-delay: 0.8s;}
+
+.ltie10 .bg93 { margin-left: 230px; opacity: 1; transition-delay: 0.7s;}
+
+.ltie10 .bg102, .ltie10 .bg103 { opacity: 1; transform:scale(1, 1); transition-delay: 0.7s;}
+.ltie10 .go { top: 25%; opacity: 1; transform:scale(1, 1); transition-delay: 1.2s;}*/
+
+</style>
+<link rel="stylesheet" type="text/css" href="csshake/csshake.min.css"> <!-- 抖动动画 -->
+<link rel="stylesheet" type="text/css" href="csshake/csshake-slow.min.css">
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.fullPage.min.js"></script>
+<script>
+$(function(){
+	if($.browser.msie && $.browser.version < 10){
+		$('body').addClass('ltie10');	
+	}
+	$.fn.fullpage({
+		verticalCentered: false,
+		anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6', 'page7', 'page8', 'page9', 'page10'],
+		navigation: true,
+		navigationTooltips: ['首页', '视觉', '交互', '皮肤', '功能', '待办邮件', '联系人邮件', '科技', '连接易信', '马上体验']
+	});
+});
+</script>
 </head>
+<body>
+<div class="section section1">
+	<div class="bg"><img src="images/section1.jpg" alt=""></div>
+	<div class="bg11"></div>
+	<div class="bg12"></div>
+	<div class="bg13"></div>
+	<div class="mail shake-slow">
+		<a class="mail-163" href="http://www.dowebok.com/">163邮箱</a>
+		<a class="mail-126" href="http://www.dowebok.com/">126邮箱</a>
+		<a class="mail-yeah" href="http://www.dowebok.com/">yeah邮箱</a>
+	</div>
+	<div class="hgroup">
+		<h1><a href="http://www.dowebok.com/">Webtools</a></h1>
+		<h2 class="">babababbbababab</h2>
+	</div>
 
-<body scroll="no">
-    <div id='view'>
-        <div id='background'></div>
-        <div id='page'>
-            <div class='page' id='page_download'>
-                <div class='img' id='page_download_hand'></div>
-                <div id='page_download_show'>
-                    <div id='page_download_show_top'>
-                        <div id='page_download_text'> 微信读书
-                            <div>让阅读不再孤独</div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#" id='page_download_button'>
-                    <div id='page_download_button_top'>
-                        <div id='page_download_mobile_iPhone'></div>
-                        <div id='page_download_mobile_android'></div>
-                    </div>
-                </a>
-                <div id="page_download_pc_button">
-                    <a href="https://i.weread.qq.com/download?from=Website&type=iOS" id="page_download_button_iPhone">
-                        <div id="page_download_pc_iPhone"></div>
-                    </a>
-                    <a href="https://i.weread.qq.com/download?from=Website&type=Android" id="page_download_button_android">
-                        <div id="page_download_pc_android"></div>
-                    </a>
-                </div>
-            </div>
-            <div class='page' id='page_function1'>
-                <div id='page_function1_text'>
-                    <h1 id='page_function1_text_title'>精心打磨的阅读体验</h1>
-                    <h2 id='page_function1_text_sub'>支持EPUB和TXT格式，随心个性化专属阅读风格。精心打磨，只为给你极致体验。</h2>
-                </div>
-                <div id='page_function1_show'>
-                    <div id='page_function1_show_top'>
-                        <div id='page_function1_book'>
-                            <div id='page_function1_book_page3'></div>
-                            <div id='page_function1_book_page2'></div>
-                            <div id='page_function1_book_page1'></div>
-                        </div>
-                        <div id='page_function1_skin'>
-                            <div id='page_function1_skin_icon'></div>
-                            <div id='page_function1_skin_block1'></div>
-                            <div id='page_function1_skin_block2'></div>
-                            <div id='page_function1_skin_block3'></div>
-                            <div id='page_function1_skin_block4'></div>
-                        </div>
-                        <div id='page_function1_font'></div>
-                    </div>
-                </div>
-            </div>
-            <div class='page' id='page_function2'>
-                <div id='page_function2_text'>
-                    <h1 id='page_function2_text_title'>和好友发现优质好书</h1>
-                    <h2 id='page_function2_text_sub'>书海茫茫，不妨让微信好友来帮你完成筛选，发现下一本适合你的好书。</h2>
-                </div>
-                <div id='page_function2_show'>
-                    <div id='page_function2_show_top'>
-                        <div id='page_function2_face'>
-                            <div id='page_function2_face_left'></div>
-                            <div id='page_function2_face_right'></div>
-                            <div id='page_function2_face_main'></div>
-                            <div id='page_function2_face_text'></div>
-                        </div>
-                        <div id='page_function2_book'>
-                            <div id='page_function2_book_07'></div>
-                            <div id='page_function2_book_06'></div>
-                            <div id='page_function2_book_05'></div>
-                            <div id='page_function2_book_04'></div>
-                            <div id='page_function2_book_03'></div>
-                            <div id='page_function2_book_02'></div>
-                            <div id='page_function2_book_01'></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class='page' id='page_function3'>
-                <div id='page_function3_text'>
-                    <h1 id='page_function3_text_title'>和好友交流阅读感想</h1>
-                    <h2 id='page_function3_text_sub'>在阅读中与好友的想法邂逅，跟好友交流你的阅读感想，碰撞出更多火花。</h2>
-                </div>
-                <div id='page_function3_show'>
-                    <div id='page_function3_show_top'>
-                        <div id='page_function3_talk'>
-                            <div id='page_function3_talk_01'></div>
-                            <div id='page_function3_talk_02'></div>
-                            <div id='page_function3_talk_03'></div>
-                            <div id='page_function3_talk_04'></div>
-                            <div id='page_function3_talk_05'></div>
-                            <div id='page_function3_talk_06'></div>
-                            <div id='page_function3_book'></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class='page' id='page_function4'>
-                <div id='page_function4_text'>
-                    <h1 id='page_function4_text_title'>和好友比拼读书排行</h1>
-                    <h2 id='page_function4_text_sub'>严肃的阅读游戏，在阅读中不仅收获知识，更收获与好友比拼的成就感。</h2>
-                </div>
-                <div id='page_function4_table'>
-                    <div id='page_function4_table_top'>
-                        <div id='page_function4_table_background'></div>
-                        <div id='page_function4_table_face_01'></div>
-                        <div id='page_function4_table_face_02'></div>
-                        <div id='page_function4_table_face_03'></div>
-                        <div id='page_function4_table_face_04'></div>
-                        <div id='page_function4_table_face_05'></div>
-                        <div id='page_function4_table_column_01'></div>
-                        <div id='page_function4_table_column_02'></div>
-                        <div id='page_function4_table_column_03'></div>
-                        <div id='page_function4_table_column_04'></div>
-                        <div id='page_function4_table_column_05'></div>
-                        <div id='page_function4_table_time_01'></div>
-                        <div id='page_function4_table_time_02'></div>
-                        <div id='page_function4_table_time_03'></div>
-                        <div id='page_function4_table_time_04'></div>
-                        <div id='page_function4_table_time_05'></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id='pageControl'>
-            <div class='pageControl' id='pageControl_button1'></div>
-            <div class='pageControl' id='pageControl_button2'></div>
-            <div class='pageControl' id='pageControl_button3'></div>
-            <div class='pageControl' id='pageControl_button4'></div>
-            <div class='pageControl' id='pageControl_button5'></div>
-        </div>
-    </div>
-    <div id='logo'></div>
-    <div id='arrow_right'>
-        <div id='arrow_right_height'></div>
-    </div>
-    <div id='arrow_left'>
-        <div id='arrow_left_height'></div>
-    </div>
-    <div class='animateArrowDown' id='arrow_down'></div>
-    <div id='nav'>
-        <a href='https://i.weread.qq.com/download?from=Website&type=iOS' id='nav_iPhone'>
-            <div id='nav_iPhone_img'></div>
-        </a>
-        <a href='https://i.weread.qq.com/download?from=Website&type=Android' id='nav_android'>
-            <div id='nav_android_img'></div>
-        </a>
-        <div id='nav_QRCode'>
-            <div id='nav_QRCode_img'></div>
-            <div id='nav_QRCode_hover'>
-                <div id='nav_QRCode_hover_border'>
-                    <div id='nav_QRCode_hover_img'></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id='load'>
-        <div class='load' id='load_function'></div>
-        <div class='load' id='load_function1_page1'></div>
-        <div class='load' id='load_function1_page2'></div>
-        <div class='load' id='load_function2_book1'></div>
-        <div class='load' id='load_function2_book2'></div>
-        <div class='load' id='load_function2_book3'></div>
-        <div class='load' id='load_function2_book4'></div>
-        <div class='load' id='load_function2_book5'></div>
-        <div class='load' id='load_function2_book6'></div>
-        <div class='load' id='load_function2_book7'></div>
-        <div class='load' id='load_function3_book'></div>
-        <div class='load' id='load_function4_background'></div>
-    </div>
-    <script src='js/jquery.min.js'></script>
-    <script src='js/index.js'></script>
+	<p class="p11">网易邮箱6.0版&mdash;&mdash;20px014年最具创意气质的重量级新邮箱，重生光华，为之瞩目。唯美<br>的视觉设计和视觉化交互，无可替代的独创动态情景皮肤，多项国内创意产品专利技术，<br>成就无与伦比的出众品味，无可比拟的美妙体验。</p>
+</div>
+
+
+<!-- section harry3 -->
+		<div class="section section2">
+			<!-- harry -->
+				<div class="bg">
+					<img src="images/section2.jpg" alt="">
+				</div>
+
+				<div class="col-sm-12 " style="margin-top:60vh">	
+					<div class="harry">
+					<div class="col-xs6 col-sm-6">
+						<img src="images/harry.png" style="border-radius:90px;width:180px">
+						<div class="harryskill" style="padding-top:7vh;margin-left:-6vh">
+							<div class="col-sm-1" style="color:grey;font-size:15px;margin-top:1vh">
+								<div style="padding:1vh 1px 1vh 0px">java</div>
+								<div style="padding:1vh 1px 1vh 0px">web</div>	
+								<div style="padding:1vh 1px 1vh 0px">python</div>
+								<div style="padding:1vh 1px 1vh 0px">java</div>
+								<div style="padding:1vh 1px 1vh 0px">web</div>
+								<div style="padding:1vh 1px 1vh 0px">python</div>
+							</div>
+							<div class="col-sm-11" style="margin-top:3vh;">
+								<!-- <div class="aa" style="">
+									<div style="float:;margin-right:10px;margin-top:vh">java</div>
+									<div class="progress" style="float:left">
+										<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+					    					<span class="sr-only">90% Complete (success)</span>
+					  					</div>
+									</div>
+								</div>
+								<div class="aa" style="">
+									<div style="margin-right:10px;">java</div>
+									<div class="progress" style="float:left">
+										<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+					    					<span class="sr-only">90% Complete (success)</span>
+					  					</div>
+									</div>
+								</div> -->
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+						    			<span class="sr-only">40% Complete (success)</span>
+						  			</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+						    			<span class="sr-only">40% Complete (success)</span>
+						  			</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+						    		<span class="sr-only">40% Complete (success)</span>
+						  			</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+					    				<span class="sr-only">40% Complete (success)</span>
+					  				</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+						    			<span class="sr-only">40% Complete (success)</span>
+						  			</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+						    		<span class="sr-only">40% Complete (success)</span>
+						  			</div>
+								</div>
+							</div>
+						<div class="col-sm-12" style="margin-left:5vh;">
+						<img class="shake-slow shake-constant shake-constant--hover" src="images/bage.png" style="width:100px;float:;"	>
+						<img class="shake-slow shake-constant " src="images/bage2.png" style="width:100px;float:;">
+						<img class="shake-slow shake-constant shake-constant--hover" src="images/bage3.png" style="width:100px;float:;">
+						<img class="shake-slow shake-constant shake-constant--hover" src="images/bage.png" style="width:100px;float:;">
+						<img class="shake-slow shake-constant" src="images/bage2.png" style="width:100px;float:;">
+						</div>	
+						</div>
+					</div>
+					</div>	
+				</div>
+				<div class="col-sm-11 harrytext">
+						<ul style="list-style-type:decimal; font-size:2vh;">
+							<li style="padding:1.5vh">Master Degree in Electronics and Communication Engineering</li>
+							<li style="padding:1.5vh">Currently working on Watson Serch, IT as a Service Navigator.</li>
+							<li style="padding:1.5vh">Hobbies : Reading, Cooking, Basketball</li>	
+							<li style="padding:1.5vh">Master Degree in Electronics and Communication Engineering</li>
+							<li style="padding:1.5vh">Native place : Dalian city, Liaoning province.</li>			
+						</ul>
+				</div>
+				
+				<img src="images/bage3.png" style="width:120px">
+
+			<strong class="group">[ Harry(杜明远) · Ming Yuan MY Du/China/IBM ]</strong>
+		</div>
+
+<!-- section eric4 -->
+		<div class="section section3">	
+			<!-- eric -->
+			<div class="bg">
+				<img src="images/section3.jpg" alt="">
+			</div>
+				<div class="col-sm-6" style="margin-top:40%">	
+					<div class="lydia">
+					<div class="col-sm-6">
+						<img src="images/Eric.png" style="border-radius:90px;width:180px">
+						<!-- <div style="margin-left:20px;padding:10px">Harry</div> -->
+						<div class="harryskill" style="padding-top:70px;margin-left:-60px">	
+							<div class="col-sm-2" style="color:#EAEAEA;font-size:150pxpx">
+								<div style="padding:6px">java</div>
+								<div style="padding:6px">web</div>
+								<div style="padding:6px">python</div>
+								<div style="padding:6px">java</div>
+								<div style="padding:6px">web</div>
+								<div style="padding:6px">python</div>
+							</div>
+							<div class="col-sm-9" style="margin-top:10px;margin-left:20px">
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+					    				<span class="sr-only">40% Complete (success)</span>
+					  				</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+						    			<span class="sr-only">40% Complete (success)</span>
+						  			</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+						    		<span class="sr-only">40% Complete (success)</span>
+						  			</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+					    				<span class="sr-only">40% Complete (success)</span>
+					  				</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+						    			<span class="sr-only">40% Complete (success)</span>
+						  			</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+						    		<span class="sr-only">40% Complete (success)</span>
+						  			</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>	
+				</div>
+				<div class="col-sm-6 lydiatext" >
+					<div>
+						<ul style="list-style-type:decimal; font-size:18px;color:#EAEAEA">
+							<li>Master Degree in Electronics and Communication Engineering</li>
+							<li>Currently working on Watson Serch, IT as a Service Navigator.</li>
+							<li>Hobbies : Reading, Cooking, Basketball</li>	
+							<li>Master Degree in Electronics and Communication Engineering</li>
+							<li>Native place : Dalian city, Liaoning province.</li>			
+						</ul>	
+					</div>	
+				</div>
+				<div class="col-sm-11" style="margin-top:10%;margin-left:50px;">
+						<img src="images/bage.png" style="width:100px;float:left;">
+						<img src="images/bage2.png" style="width:100px;float:left;">
+						<img src="images/bage3.png" style="width:100px;float:left;">
+						<img src="images/bage.png" style="width:100px;float:left;">
+						<img src="images/bage2.png" style="width:100px;float:left;">
+						
+				</div>
+			<strong class="groupleft">[ Eric(刘旭东) · Xu Dong XD Liu/China/IBM ]</strong>
+		</div>
+
+<!-- section lydia5 -->
+		<div class="section section4">
+				<div class="bg">
+					<img src="images/section6.jpg" alt="">
+				</div>
+				<div class="col-sm-6" style="margin-top:40%">	
+					<div class="harry">
+						<div class="col-sm-6">
+							<img src="images/lydia.png" style="border-radius:90px;width:180px">
+							<div class="harryskill" style="padding-top:70px;margin-left:-60px">	
+								<div class="col-sm-2" style="color:grey;font-size:150pxpx">
+									<div style="padding:6px">java</div>
+									<div style="padding:6px">web</div>
+									<div style="padding:6px">python</div>
+									<div style="padding:6px">java</div>
+									<div style="padding:6px">web</div>
+									<div style="padding:6px">python</div>
+								</div>
+								<div class="col-sm-9" style="margin-top:10px;margin-left:20px">
+									<div class="progress">
+										<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+					    					<span class="sr-only">40% Complete (success)</span>
+					  					</div>
+									</div>
+									<div class="progress">
+										<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+							    			<span class="sr-only">40% Complete (success)</span>
+							  			</div>
+									</div>
+									<div class="progress">
+										<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+							    		<span class="sr-only">40% Complete (success)</span>
+							  			</div>
+									</div>
+									<div class="progress">
+										<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+						    				<span class="sr-only">40% Complete (success)</span>
+						  				</div>
+									</div>
+									<div class="progress">
+										<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+							    			<span class="sr-only">40% Complete (success)</span>
+							  			</div>
+									</div>
+									<div class="progress">
+										<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+							    			<span class="sr-only">40% Complete (success)</span>
+							  			</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>
+				<div class="col-sm-6 harrytext" >
+					<div>
+						<ul style="list-style-type:decimal; font-size:18px">
+							<li>Master Degree in Electronics and Communication Engineering</li>
+							<li>Currently working on Watson Serch, IT as a Service Navigator.</li>
+							<li>Hobbies : Reading, Cooking, Basketball</li>	
+							<li>Master Degree in Electronics and Communication Engineering</li>
+							<li>Native place : Dalian city, Liaoning province.</li>			
+						</ul>	
+					</div>	
+				</div>
+				<div class="col-sm-11 shake-crazy shake-freeze" style="margin-top:10%;margin-rignt:40px;">
+						<img src="images/bage.png" style="width:100px;float:right;">
+						<img src="images/bage2.png" style="width:100px;float:right;">
+						<img src="images/bage3.png" style="width:100px;float:right;">
+						<img src="images/bage.png" style="width:100px;float:right;">
+						<img src="images/bage2.png" style="width:100px;float:right;">
+						
+				</div>
+				<strong class="group">[ Lydia(邢偲宇) · Si Yu YY Xing/China/Contr/IBM ]</strong>
+		</div>
+
+<!-- section tuomasi6 -->
+	<div class="section section5">
+		<div class="bg"><img src="images/section5.jpg" alt=""></div>
+			<div class="col-sm-6" style="margin-top:40%">	
+				<div class="lydia">
+					<div class="col-sm-6">
+						<img src="images/thomas.png" style="border-radius:90px;width:180px">
+						<!-- <div style="margin-left:20px;padding:10px">Harry</div> -->
+						<div class="harryskill" style="padding-top:70px;margin-left:-60px">	
+							<div class="col-sm-2" style="color:#EAEAEA;font-size:150px">
+								<div style="padding:6px">java</div>
+								<div style="padding:6px">web</div>
+								<div style="padding:6px">python</div>
+								<div style="padding:6px">java</div>
+								<div style="padding:6px">web</div>
+								<div style="padding:6px">python</div>
+							</div>
+							<div class="col-sm-9" style="margin-top:10px;margin-left:20px">
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+					    				<span class="sr-only">40% Complete (success)</span>
+					  				</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+						    			<span class="sr-only">40% Complete (success)</span>
+						  			</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+						    		<span class="sr-only">40% Complete (success)</span>
+						  			</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+					    				<span class="sr-only">40% Complete (success)</span>
+					  				</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+						    			<span class="sr-only">40% Complete (success)</span>
+						  			</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+						    		<span class="sr-only">40% Complete (success)</span>
+						  			</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>	
+				</div>
+				<div class="col-sm-6 lydiatext" >
+					<div>
+						<ul style="list-style-type:decimal; font-size:18px;color:#EAEAEA">
+							<li>Master Degree in Electronics and Communication Engineering</li>
+							<li>Currently working on Watson Serch, IT as a Service Navigator.</li>
+							<li>Hobbies : Reading, Cooking, Basketball</li>	
+							<li>Master Degree in Electronics and Communication Engineering</li>
+							<li>Native place : Dalian city, Liaoning province.</li>			
+						</ul>	
+					</div>	
+				</div>
+				<div class="col-sm-11" style="margin-top:10%;margin-left:50px;">
+						<img src="images/bage.png" style="width:100px;float:left;">
+						<img src="images/bage2.png" style="width:100px;float:left;">
+						<img src="images/bage3.png" style="width:100px;float:left;">
+						<img src="images/bage.png" style="width:100px;float:left;">
+						<img src="images/bage2.png" style="width:100px;float:left;">
+						
+				</div>	
+				<strong class="groupleft">[ Thomas(郭家亮) · Jia Liang Guo/China/IBM]</strong>
+	</div>
+
+<!-- section alex7 -->
+	<div class="section section6">
+	<div class="bg"><img src="images/section4.jpg" alt=""></div>
+	<div class="col-sm-6" style="margin-top:40%">	
+					<div class="harry">
+					<div class="col-sm-6">
+						<img src="images/alex.png" style="border-radius:90px;width:180px">
+						<!-- <div style="margin-left:20px;padding:10px">Harry</div> -->
+						<div class="harryskill" style="padding-top:70px;margin-left:-60px">	
+							<div class="col-sm-2" style="color:grey;font-size:150pxpx">
+								<div style="padding:6px">java</div>
+								<div style="padding:6px">web</div>
+								<div style="padding:6px">python</div>
+								<div style="padding:6px">java</div>
+								<div style="padding:6px">web</div>
+								<div style="padding:6px">python</div>
+							</div>
+							<div class="col-sm-9" style="margin-top:10px;margin-left:20px">
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+					    				<span class="sr-only">40% Complete (success)</span>
+					  				</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+						    			<span class="sr-only">40% Complete (success)</span>
+						  			</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+						    		<span class="sr-only">40% Complete (success)</span>
+						  			</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+					    				<span class="sr-only">40% Complete (success)</span>
+					  				</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+						    			<span class="sr-only">40% Complete (success)</span>
+						  			</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+						    		<span class="sr-only">40% Complete (success)</span>
+						  			</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>	
+				</div>
+				<div class="col-sm-6 harrytext" >
+					<div>
+						<ul style="list-style-type:decimal; font-size:18px">
+							<li>Master Degree in Electronics and Communication Engineering</li>
+							<li>Currently working on Watson Serch, IT as a Service Navigator.</li>
+							<li>Hobbies : Reading, Cooking, Basketball</li>	
+							<li>Master Degree in Electronics and Communication Engineering</li>
+							<li>Native place : Dalian city, Liaoning province.</li>			
+						</ul>	
+					</div>	
+				</div>
+				<div class="col-sm-11 shake-crazy shake-freeze" style="margin-top:10%;margin-rignt:40px;">
+						<img src="images/bage.png" style="width:100px;float:right;">
+						<img src="images/bage2.png" style="width:100px;float:right;">
+						<img src="images/bage3.png" style="width:100px;float:right;">
+						<img src="images/bage.png" style="width:100px;float:right;">
+						<img src="images/bage2.png" style="width:100px;float:right;">
+						
+				</div>
+				<img src="images/bage3.png" style="width:120px">
+			<strong class="group">[ Alex(杨刚) · Gang DG Yang/China/Contr/IBM]</strong>
+		</div>
+
+<!-- section alice8 -->
+	<div class="section section7">
+	<div class="bg"><img src="images/section9.jpg" alt=""></div>
+	<div class="col-sm-6" style="margin-top:40%">	
+				<div class="lydia">
+					<div class="col-sm-6">
+						<img src="images/alice.jpg" style="border-radius:90px;width:180px">
+						<!-- <div style="margin-left:20px;padding:10px">Harry</div> -->
+						<div class="harryskill" style="padding-top:70px;margin-left:-60px">	
+							<div class="col-sm-2" style="color:#EAEAEA;font-size:150pxpx">
+								<div style="padding:6px">java</div>
+								<div style="padding:6px">web</div>
+								<div style="padding:6px">python</div>
+								<div style="padding:6px">java</div>
+								<div style="padding:6px">web</div>
+								<div style="padding:6px">python</div>
+							</div>
+							<div class="col-sm-9" style="margin-top:10px;margin-left:20px">
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+					    				<span class="sr-only">40% Complete (success)</span>
+					  				</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+						    			<span class="sr-only">40% Complete (success)</span>
+						  			</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+						    		<span class="sr-only">40% Complete (success)</span>
+						  			</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+					    				<span class="sr-only">40% Complete (success)</span>
+					  				</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+						    			<span class="sr-only">40% Complete (success)</span>
+						  			</div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+						    		<span class="sr-only">40% Complete (success)</span>
+						  			</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>	
+				</div>
+				<div class="col-sm-6 lydiatext" >
+					<div>
+						<ul style="list-style-type:decimal; font-size:18px;color:#EAEAEA">
+							<li>Master Degree in Electronics and Communication Engineering</li>
+							<li>Currently working on Watson Serch, IT as a Service Navigator.</li>
+							<li>Hobbies : Reading, Cooking, Basketball</li>	
+							<li>Master Degree in Electronics and Communication Engineering</li>
+							<li>Native place : Dalian city, Liaoning province.</li>			
+						</ul>	
+					</div>	
+				</div>
+				<div class="col-sm-11" style="margin-top:10%;margin-left:50px;">
+						<img src="images/bage.png" style="width:100px;float:left;">
+						<img src="images/bage2.png" style="width:100px;float:left;">
+						<img src="images/bage3.png" style="width:100px;float:left;">
+						<img src="images/bage.png" style="width:100px;float:left;">
+						<img src="images/bage2.png" style="width:100px;float:left;">
+				</div>	
+				<strong class="groupleft">[ Alice(赵娜) · Na ZN Zhao/China/IBM]</strong>
+	</div>
+
+<div class="section section8">
+	<div class="bg"><img src="images/section8.jpg" alt=""></div>
+	<div class="bg81"></div>
+	<div class="bg82"></div>
+	<div class="bg83"></div>
+	<div class="bg84"></div>
+	<strong>[ 科技.聚 ]</strong>
+	<h3>厚积薄发，大幅度提速创新标</h3>
+	<p class="p8">邮箱6.0版带来“飞”一般的访问体验，速度提升达30%。采用全新base基础库bjs，更加轻量级，性能更加优化，完全兼容国内用户使用的所有浏览器，以及基于"多核"多线程的核心js引擎，性能和访问速度大幅提升。</p>
+</div>
+
+<div class="section section9">
+	<div class="bg"><img src="images/section9.jpg" alt=""></div>
+	<strong>[ 让沟通更有趣 ]</strong>
+	<h3><span></span>沟通无界，连接易信无缝整合</h3>
+	<div class="bg91">
+		<p>易信扫描二维码即可登录网易<br>邮箱6.0版，“扫一扫”让邮<br>箱登录更方便。</p>
+	</div>
+	<div class="bg92">
+		<p>登录邮箱后，可直接使用Web<br>易信和好友聊天，还可以发图<br>片，让聊天更有趣。</p>
+	</div>
+	<div class="bg93">
+		<p>易信和邮箱新邮件同步提醒，<br>在易信可以直接查看和回复<br>邮件，手机收发邮件更快捷。</p>
+	</div>
+</div>
+
+<div class="section section10">
+	<div class="bg"><img src="images/section10.jpg" alt=""></div>
+	<div class="bg101"></div>
+	<div class="bg102"></div>
+	<div class="bg103"></div>
+	<a class="go" href="http://www.dowebok.com/">马上体验</a>
+	<p class="copyright">
+		<a href="javascript:">关于网易</a>
+		<a href="javascript:">关于网易免费邮</a>
+		<a href="javascript:">邮箱官方博客</a>
+		<a href="javascript:">客户服务</a>
+		<a href="javascript:">隐私政策</a>
+		<span>|</span>
+		<span>网易公司版权所有 © 1997-2014 </span>
+	</p>
+</div>
+
+
+<div class="section section11">
+	<div class="bg"><img src="images/section10.jpg" alt=""></div>
+	<div class="bg101"></div>
+	<div class="bg102"></div>
+	<div class="bg103"></div>
+	<a class="go" href="http://www.dowebok.com/">马上体验</a>
+	<p class="copyright">
+		<a href="javascript:">关于网易</a>
+		<a href="javascript:">关于网易免费邮</a>
+		<a href="javascript:">邮箱官方博客</a>
+		<a href="javascript:">客户服务</a>
+		<a href="javascript:">隐私政策</a>
+		<span>|</span>
+		<span>网易公司版权所有 © 1997-2014 </span>
+	</p>
+</div>
+
+
+
+<!-- <a href="http://www.dowebok.com/" style="display: none;">dowebok</a> -->
+<!-- <a href="http://www.dowebok.com/97.html" style="display: none;">fullPage.js制作网易邮箱6.0介绍页面</a> -->
+
 </body>
-
 </html>
