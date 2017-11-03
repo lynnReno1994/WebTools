@@ -36,17 +36,11 @@ body { font: 16px/1.8 "Microsoft Yahei",verdana;}
 
 .hgroup { position: absolute; width: 554px; height: 176px; left: 50%; top: 25%; margin: 0 0 0 -277px; text-indent: -9999px; background-image: url(images/slogan.png); opacity: 0; -webkit-transform:scale(0.5, 0.5); transform:scale(0.5, 0.5); transition: all 1s;}
 .p11 { position: absolute; left: 50%; top: 50%; width: 600px; margin: 0 0 0 -280px; font-size: 14px; color: #94a7c6; opacity: 0; transition: all 0.5s;}
-.mail { position: absolute; left: 50%; top: -26px; width: 375px; height: 26px; margin-left: -187px; background-image: url(images/logo.png); transition: all 1s;}
-.mail { float: left; height: 26px; text-indent: -9999px;}
-.mail-163 { float: left; width: 107px;}
-.mail-126 { float: left;width: 108px; margin-left: 23px;}
-.mail-yeah { float: right; width: 115px;}
 
 
 
 
-
-.harry { position: absolute; left: 100%;bottom: 15%; width: 500px; height: 250px; margin-left: -608px; margin-bottom: 40px; background: url() 0 0 no-repeat; transition: all 1s;  opacity: 0; margin-left: 0px;}
+.harry { position: absolute; left: 100%;bottom:30px; width: 500px; height:450px; margin-left: -608px; margin-bottom: 40px; transition: all 1s;  opacity: 0; margin-left: 0px;}
 .active .harry { opacity: 1; margin-left: -400px; transition-delay: 0.7s;}
 .harrytext { position: absolute; left: 30%; top:20%;bottom: 15%; width: 500px; height: 250px; margin-left: -608px; margin-bottom: 40px; background: url() 0 0 no-repeat; transition: all 1s;  opacity: 0; margin-left: 0px;}
 .active .harrytext { opacity: 1; margin-left: 200px; transition-delay: 0.7s;}
@@ -57,9 +51,17 @@ body { font: 16px/1.8 "Microsoft Yahei",verdana;}
 .lydiatext { position: absolute; left: 50%; top:20%;bottom: 15%; width: 500px; height: 250px; margin-left: -608px; margin-bottom: 40px; background: url() 0 0 no-repeat; transition: all 1s;  opacity: 0; margin-left: 0px;}
 .active .lydiatext { opacity: 1; margin-left: -400px; transition-delay: 0.7s;}
 
+.home { position: absolute; left: 60%; top:60%; z-index: 10; width: 900px; height: 45px; margin-left: -556px; font-size: 50px; font-weight: 500; color: white; opacity: 0; -webkit-transform:scale(0.5, 0.5); transform:scale(0.5, 0.5); transition: all 1s;}
 
-.group { position: absolute; left: 60%; top: 5%; z-index: 10; width: 900px; height: 45px; margin-left: -256px; font-size: 25px; font-weight: 500; color: #748A9E; opacity: 0; -webkit-transform:scale(0.5, 0.5); transform:scale(0.5, 0.5); transition: all 1s;}
+.group { position: absolute; left: 60%; top:15%; z-index: 10; width: 900px; height: 45px; margin-left: -556px; font-size: 25px; font-weight: 500; color: white; opacity: 0; -webkit-transform:scale(0.5, 0.5); transform:scale(0.5, 0.5); transition: all 1s;}
+
+.name { position: absolute; left: 15%; top:-10%; z-index: 10; width: 900px; height: 45px; padding: 0px; font-size: 30px; font-weight: 500; color: #325C80; opacity: 0; -webkit-transform:scale(0.5, 0.5); transform:scale(0.5, 0.5); transition: all 1s;}
+.active .name { opacity: 1; -webkit-transform:scale(1, 1); transform:scale(1, 1); transition-delay: 0.7s;}
+
+/*
 .groupleft { position: absolute; left: 30%; top: 5%; z-index: 10; width: 900px; height: 45px; margin-left: -256px; font-size: 25px; font-weight: 500; color: white; opacity: 0; -webkit-transform:scale(0.5, 0.5); transform:scale(0.5, 0.5); transition: all 1s;}
+*/
+
 .progress{ margin-bottom:2.4vh;}
 li{ padding:5px;}	
 .bg12 { position: absolute; bottom: -392px; width: 95%; height: 100px;opacity: 0; transition: all 1.7s; bottom: 90px\0;}
@@ -76,67 +78,8 @@ li{ padding:5px;}
 .active strong, .active h3 { opacity: 1; -webkit-transform:scale(1, 1); transform:scale(1, 1); transition-delay: 0.7s;}
 .active .p1 { opacity: 1; transition-delay: 1.7s;}
 .active .pl { opacity: 1; transition-delay: 1.7s;}
-.active .test { opacity: 1; transition-delay: 1.7s;}
 
 
-
-
-
-#section07 a {
-	padding-top: 80px;
-}
-#section07 a span {
-	position: absolute;
-	top: 0;
-	left: 50%;
-	width: 24px;
-	height: 24px;
-	margin-left: -12px;
-	border-left: 1px solid #fff;
-	border-bottom: 1px solid #fff;
-	-webkit-transform: rotate(-45deg);
-	transform: rotate(-45deg);
-	-webkit-animation: sdb07 2s infinite;
-	animation: sdb07 2s infinite;
-	opacity: 0;
-	box-sizing: border-box;
-}
-#section07 a span:nth-of-type(1) {
-	-webkit-animation-delay: 0s;
-	animation-delay: 0s;
-}
-#section07 a span:nth-of-type(2) {
-	top: 16px;
-	-webkit-animation-delay: .15s;
-	animation-delay: .15s;
-}
-#section07 a span:nth-of-type(3) {
-	top: 32px;
-	-webkit-animation-delay: .3s;
-	animation-delay: .3s;
-}
-@-webkit-keyframes sdb07 {
-	0% {
-		opacity: 0;
-	}
-	50% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0;
-	}
-}
-@keyframes sdb07 {
-	0% {
-		opacity: 0;
-	}
-	50% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0;
-	}
-}
 
 </style>
 <link rel="stylesheet" type="text/css" href="csshake/csshake.min.css"> <!-- 抖动动画 -->
@@ -161,31 +104,37 @@ $(function(){
 </head>
 <body>
 <div class="section section1">
-	<div class="bg"><img src="images/bg81.png" alt=""></div>
-	<strong class="group" style="font-size:50px;margin-top:420px">[IBM China Web Tools ]</strong>
+	<div class="bg"><img src="images/homepage.png" alt=""></div>
+	<strong class="home">[IBM China Web Tools ]</strong>
 </div>
 
 
 <!-- section harry3 -->
 		<div class="section section2">
 			<!-- harry -->
+				
 				<div class="bg">
 					<img src="images/section2.jpg" alt="">
 				</div>
-				<div class="col-sm-6" style="margin-top:40%">	
+				<div class="col-sm-6" style="margin-top:60%">	
+
 					<div class="harry">
-					<div class="col-sm-7">
-						<img src="images/harry.png" style="border-radius:90px;width:180px">
-						<div class="harryskill" style="padding-top:70px;margin-left:-100px">	
+					<div class="col-sm-7" style="margin-top:30px">
+						<div class="name">[ Harry ]</div>
+
+
+						<div class="head"><img src="images/harry.png" style="border-radius:90px;width:180px;margin-top:40px"></div>
+
+						<div class="harryskill" style="padding-top:50px;margin-left:-100px;margin-top:30px">	
 							<div class="col-sm-2" style="color:grey;font-size:15px">
-								<div style="padding:1vh">HTL5</div>
-								<div style="padding:1vh">CSS3</div>
-								<div style="padding:1vh">JS</div>
-								<div style="padding:1vh">Jquery</div>
-								<div style="padding:1vh">Angular</div>
-								<div style="padding:0vh 1vh 0vh 1vh">ReactJs</div>
+								<div style="padding:6px">HTL5</div>
+								<div style="padding:6px">CSS3</div>
+								<div style="padding:6px">JavaScript</div>
+								<div style="padding:6px">Bluemix</div>
+								<div style="padding:6px">Cloud</div>
+
 							</div>
-							<div class="col-sm-9" style="margin-top:20px;margin-left:20px">
+							<div class="col-sm-9" style="margin-top:10px;margin-left:30px">
 								<div class="progress">
 									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 95%">
 					    				<span class="sr-only">40% Complete (success)</span>
@@ -211,11 +160,7 @@ $(function(){
 						    			<span class="sr-only">90% Complete (success)</span>
 						  			</div>
 								</div>
-								<div class="progress">
-									<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 95%">
-						    		<span class="sr-only">90% Complete (success)</span>
-						  			</div>
-								</div>
+
 							</div>
 						</div>
 					</div>
@@ -224,7 +169,7 @@ $(function(){
 				<div class="col-sm-6 harrytext" >
 					<div>
 						<ul style="list-style-type:decimal; font-size:18px;color:grey">
-							<li>Master Degree in Electronics and Communication Engineering</li>
+							<li>work for IBM:8 years</li>
 							<li>Currently working on Watson Serch, IT as a Service Navigator.</li>
 							<li>Hobbies : Reading, Cooking, Basketball</li>	
 							<li>Master Degree in Electronics and Communication Engineering</li>
@@ -242,7 +187,7 @@ $(function(){
 						<img src="images/Picture3.png" style="width:100px;float:right;">
 						<img src="images/Picture4.png" style="width:100px;float:right;">	
 				</div>
-			<strong class="group">[ Harry(杜明远) · Ming Yuan MY Du/China/IBM ]</strong>
+
 
 
 
