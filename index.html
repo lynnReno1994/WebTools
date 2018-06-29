@@ -1645,8 +1645,7 @@ var option3 ={
     legend: {
         orient: 'vertical',
         x: 'left',
-        data:['Java','UI/UX','DB/Datastage','BlueMix','CMS',
-				'Mobile','RPA','Watson Services']
+        data:['Java','UI/UX','DB/Datastage','RPA','CMS','BlueMix','Mobile']
     },
 		calculable : false,
 
@@ -1655,16 +1654,16 @@ var option3 ={
             name:'Project Classification',
             type:'pie',
             radius : [30, 110],
-						roseType : 'radius',
+						roseType : 'area',
 						color: ['#e69d87','#8dc1a9','#ea7e53','#eedd78','#73a373','#73b9bc','#7289ab', '#91ca8c','#f49f42'],
             data:[
-                {value:9, name:'Java'},
+                {value:16, name:'Java'},
                 {value: 3 , name:'UI/UX'},
                 {value:3, name:'DB/Datastage'},
-								{value:2, name:'BlueMix'},
+                {value: 12, name:'RPA'},
                 {value:6, name:'CMS'},
-								{value:2, name:'Mobile'},
-                {value: 2, name:'RPA'}
+								{value:3, name:'BlueMix'},
+								{value:2, name:'Mobile'}
             ]
         }
     ]
