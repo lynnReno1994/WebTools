@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>GSS China Team</title>
 	<link rel="stylesheet" href="css/jquery.fullPage.css">
-	<link rel="shortcut icon"href="./../WebTools/images/fluidicon.png" title="WebTools">
+	<link rel="shortcut icon"href="./../WebTools/images/iPadPro_icon.png" title="WebTools">
 	<script src="js/jquery.js"></script>
 	<script src="js/swiper/swiper.min.js"></script>
 	<script src="js/main.js"></script>
@@ -91,7 +91,7 @@ $(function(){
 </head>
 <body>
 <div class="section section1">
-	<div class="bg"><img src="images/newDBG.png" alt=""></div>
+	<div class="bg"><img src="images/cciioo.png" alt=""></div>
 
 </div>
 
@@ -1638,6 +1638,10 @@ var option3 ={
 				x:'38%',
 				y:'5%'
 		},
+		tooltip : {
+        trigger: 'item',
+        formatter: "{a} <br/>{b} : {c} ({d}%)"
+    },
     legend: {
         orient: 'vertical',
         x: 'left',
@@ -1674,14 +1678,13 @@ var option3 ={
             //     }
             // },
             data:[
-                {value:10, name:'Java'},
-                {value: 7 , name:'UI/UX'},
-                {value:4, name:'DB/Datastage'},
-								{value:3, name:'BlueMix'},
-                {value:1, name:'CMS'},
-								{value:1, name:'Mobile'},
-                {value: 5, name:'RPA'},
-								{value: 1, name:'Watson Services'}
+                {value:16, name:'Java'},
+                {value: 3 , name:'UI/UX'},
+                {value:3, name:'DB/Datastage'},
+								{value:2, name:'BlueMix'},
+                {value:6, name:'CMS'},
+								{value:2, name:'Mobile'},
+                {value: 2, name:'RPA'}
             ]
         }
     ]
@@ -1691,6 +1694,10 @@ var option4 ={
 				text: 'IBM Essentials',
 				x:'38%',
 				y:'5%'
+		},
+		tooltip : {
+				trigger: 'item',
+				formatter: "{a} <br/>{b} : {c} ({d}%)"
 		},
     legend: {
         orient: 'vertical',
